@@ -35,6 +35,20 @@ export const likePost = async postId => {
       isLike: true
     }
   });
+  console.log(response.isLike);
+  return response.json();
+};
+
+export const dislikePost = async postId => {
+  const response = await callWebApi({
+    endpoint: '/api/posts/react',
+    type: 'PUT',
+    request: {
+      postId,
+      isLike: false
+    }
+  });
+  // console.log(response.isLike);
   return response.json();
 };
 
