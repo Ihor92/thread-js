@@ -5,7 +5,7 @@ import moment from 'moment';
 
 import styles from './styles.module.scss';
 
-const Post = ({ post, likePost, toggleExpandedPost, sharePost }) => {
+const Post = ({ post, likePost, dislikePost, toggleExpandedPost, sharePost }) => {
   const {
     id,
     image,
@@ -35,21 +35,49 @@ const Post = ({ post, likePost, toggleExpandedPost, sharePost }) => {
         </Card.Description>
       </Card.Content>
       <Card.Content extra>
-        <Label basic size="small" as="a" className={styles.toolbarBtn} onClick={() => likePost(id)}>
+        <Label
+          basic
+          size="small"
+          as="a"
+          className={styles.toolbarBtn}
+          onClick={() => likePost(id)}
+        >
           <Icon name="thumbs up" />
           {likeCount}
         </Label>
-        <Label basic size="small" as="a" className={styles.toolbarBtn}>
+
+        <Label
+          basic
+          size="small"
+          as="a"
+          className={styles.toolbarBtn}
+          onClick={() => dislikePost(id)}
+        >
           <Icon name="thumbs down" />
           {dislikeCount}
         </Label>
-        <Label basic size="small" as="a" className={styles.toolbarBtn} onClick={() => toggleExpandedPost(id)}>
+
+        <Label
+          basic
+          size="small"
+          as="a"
+          className={styles.toolbarBtn}
+          onClick={() => toggleExpandedPost(id)}
+        >
           <Icon name="comment" />
           {commentCount}
         </Label>
-        <Label basic size="small" as="a" className={styles.toolbarBtn} onClick={() => sharePost(id)}>
+
+        <Label
+          basic
+          size="small"
+          as="a"
+          className={styles.toolbarBtn}
+          onClick={() => sharePost(id)}
+        >
           <Icon name="share alternate" />
         </Label>
+
       </Card.Content>
     </Card>
   );
@@ -58,6 +86,7 @@ const Post = ({ post, likePost, toggleExpandedPost, sharePost }) => {
 Post.propTypes = {
   post: PropTypes.objectOf(PropTypes.any).isRequired,
   likePost: PropTypes.func.isRequired,
+  dislikePost: PropTypes.func.isRequired,
   toggleExpandedPost: PropTypes.func.isRequired,
   sharePost: PropTypes.func.isRequired
 };
