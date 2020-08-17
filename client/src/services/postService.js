@@ -35,7 +35,6 @@ export const likePost = async postId => {
       isLike: true
     }
   });
-  console.log(response.isLike);
   return response.json();
 };
 
@@ -48,7 +47,7 @@ export const dislikePost = async postId => {
       isLike: false
     }
   });
-  // console.log(response.isLike);
+  console.log(response);
   return response.json();
 };
 

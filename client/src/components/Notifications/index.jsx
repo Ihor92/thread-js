@@ -17,6 +17,10 @@ const Notifications = ({ user, applyPost }) => {
     socket.on('like', () => {
       NotificationManager.info('Your post was liked!');
     });
+
+    socket.on('dislike', () => {
+      NotificationManager.info('Check!');
+    });
     socket.on('new_post', post => {
       if (post.userId !== id) {
         applyPost(post.id);
